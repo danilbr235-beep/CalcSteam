@@ -82,6 +82,25 @@ python -m app.db.seed
 - hourly `recalc_pricing`
 - every 2 min `clear_expired` (с distributed lock)
 
+## GitHub sync
+
+Проект **не пушится автоматически** в ваш GitHub, пока не настроен `origin`.
+
+Подробная инструкция: `docs/github-sync.md`.
+
+Быстрый старт:
+
+```bash
+git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPO>.git
+git push -u origin <YOUR_BRANCH>
+```
+
+## CI
+
+Добавлен GitHub Actions workflow `.github/workflows/ci.yml`:
+- `apps/api`: `pytest -q`
+- `apps/web`: `npm run build`
+
 ## Тесты
 
 ```bash
